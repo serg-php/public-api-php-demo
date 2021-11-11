@@ -3,7 +3,7 @@
   "description": "Hubstaff Public API Demo",
   "type": "project",
   "require": {
-    "php": "^7.2",
+    "php": ">=7.2",
     "facile-it/php-openid-client": "^0.1.4",
     "php-http/message": "^1.10",
     "guzzlehttp/psr7": "^1.7",
