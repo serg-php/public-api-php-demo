@@ -113,4 +113,16 @@ class APIManager
 
         return $this->makeRequest($request);
     }
+    public function PUT($path, $params = [])
+    {
+        $uri = $this->uriFactory->createUri($this->token->APIBaseURL() . $path);
+
+        $body = $this->streamFactory->createStream(json_encode($params));
+
+        $request = $this->requestFactory->createRequest('PUT', $uri)
+            ->withHeader('Content-Type', 'application/json')
+            ->withBody($body);
+
+        return $this->makeRequest($request);
+    }
 }
