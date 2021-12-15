@@ -1,6 +1,6 @@
 {
-  "name": "netsoftholdings/public-api-demo",
-  "description": "Hubstaff Public API Demo",
+  "name": "serg-php/public-api-hubstaff",
+  "description": "Hubstaff Public API",
   "type": "project",
   "require": {
     "php": ">=7.2",

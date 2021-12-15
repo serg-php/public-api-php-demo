@@ -18,12 +18,16 @@ class StateManager
     /** @var string */
     private $cache_folder;
 
+    /** @var string */
+    private $configFileName;
+
     /** @var CacheInterface */
     private $cache;
 
-    function __construct(string $cache_folder)
+    function __construct(string $cache_folder,string $configFileName='configState.json')
     {
         $this->cache_folder = $cache_folder;
+        $this->configFileName = $configFileName;
 
         $this->load();
         if (empty($this->config['issuer_url'])) {
@@ -52,12 +56,12 @@ class StateManager
 
     public function load()
     {
-        $configData = file_get_contents('configState.json');
+        $configData = file_get_contents($this->configFileName);
         $this->config = json_decode($configData, true);
     }
 
     public function save()
     {
-        file_put_contents('configState.json', json_encode($this->config, JSON_PRETTY_PRINT));
+        file_put_contents($this->configFileName, json_encode($this->config, JSON_PRETTY_PRINT));
     }
 }
